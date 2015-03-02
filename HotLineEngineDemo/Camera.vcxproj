@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Common\Camera.cpp" />
+    <ClCompile Include="..\Common\d3dApp.cpp" />
+    <ClCompile Include="..\Common\d3dUtil.cpp" />
+    <ClCompile Include="..\Common\GameTimer.cpp" />
+    <ClCompile Include="..\Common\GeometryGenerator.cpp" />
+    <ClCompile Include="..\Common\LightHelper.cpp" />
+    <ClCompile Include="..\Common\MathHelper.cpp" />
+    <ClCompile Include="..\Common\TextureMgr.cpp" />
+    <ClCompile Include="..\Common\Waves.cpp" />
+    <ClCompile Include="..\Common\xnacollision.cpp" />
+    <ClCompile Include="AnimationManager.cpp" />
+    <ClCompile Include="BaseState.cpp" />
+    <ClCompile Include="Cernel.cpp" />
+    <ClCompile Include="cProcessManager.cpp" />
+    <ClCompile Include="cStateManager.cpp" />
+    <ClCompile Include="MoveAnimation.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="TestState.cpp" />
+    <ClCompile Include="DrawAllProcess.cpp" />
+    <ClCompile Include="Effects.cpp" />
+    <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="InputLayouts.cpp" />
+    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="SpriteObject.cpp" />
+    <ClCompile Include="TextureAnimation.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="bottle.obj" />
+    <Text Include="bottle.mtl" />
+    <Text Include="ground.obj" />
+    <Text Include="ground.mtl" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="FX\Basic.fx">
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\HotLineProject\d3d11CodeSet1\Chapter 8 Texturing\TexturedHillsAndWaves\Textures\grass.dds" />
+    <Image Include="..\..\..\HotLineProject\d3d11CodeSet1\Chapter 8 Texturing\TexturedHillsAndWaves\Textures\water1.dds" />
+    <Image Include="..\..\..\HotLineProject\d3d11CodeSet1\Chapter 8 Texturing\TexturedHillsAndWaves\Textures\water2.dds" />
+    <Image Include="..\..\..\HotLineProject\d3d11CodeSet1\Chapter 8 Texturing\TexturedHillsAndWaves\Textures\WoodCrate01.dds" />
+    <Image Include="..\..\..\HotLineProject\d3d11CodeSet1\Chapter 8 Texturing\TexturedHillsAndWaves\Textures\WoodCrate02.dds" />
+    <Image Include="Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\Common\Effects11.lib" />
+    <Library Include="..\Common\Effects11d.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Common\Camera.h" />
+    <ClInclude Include="..\Common\d3dApp.h" />
+    <ClInclude Include="..\Common\d3dUtil.h" />
+    <ClInclude Include="..\Common\d3dx11effect.h" />
+    <ClInclude Include="..\Common\GameTimer.h" />
+    <ClInclude Include="..\Common\GeometryGenerator.h" />
+    <ClInclude Include="..\Common\LightHelper.h" />
+    <ClInclude Include="..\Common\MathHelper.h" />
+    <ClInclude Include="..\Common\TextureMgr.h" />
+    <ClInclude Include="..\Common\Waves.h" />
+    <ClInclude Include="..\Common\xnacollision.h" />
+    <ClInclude Include="AnimationManager.h" />
+    <ClInclude Include="BaseAnimation.h" />
+    <ClInclude Include="BaseObject.h" />
+    <ClInclude Include="BaseProcess.h" />
+    <ClInclude Include="BaseState.h" />
+    <ClInclude Include="INTERNAL_MSG.h" />
+    <ClInclude Include="MoveAnimation.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="ProcessManager.h" />
+    <ClInclude Include="DrawAllProcess.h" />
+    <ClInclude Include="Effects.h" />
+    <ClInclude Include="Grid.h" />
+    <ClInclude Include="InputLayouts.h" />
+    <ClInclude Include="KEYS.h" />
+    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="cStateManager.h" />
+    <ClInclude Include="SpriteObject.h" />
+    <ClInclude Include="TestState.h" />
+    <ClInclude Include="TestStateDerrivative.h" />
+    <ClInclude Include="TextureAnimation.h" />
+    <ClInclude Include="Time.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\HotLinePrototype5\Chapter 25 Character Animation\SkinnedMesh\SkinnedMesh.vcxproj.filters" />
+    <None Include="SkinnedMesh\SkinnedMesh.vcxproj.filters" />
+    <None Include="Water\TexturedHillsAndWaves.vcxproj.filters" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0B61E6CF-A0E7-4E61-92D5-246A160C929C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Camera</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <ExecutablePath>$(ProjectDir)\..\Microsoft DirectX SDK %28June 2010%29\Utilities\bin\x86;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(ProjectDir)\..\Microsoft DirectX SDK %28June 2010%29\Include;$(ProjectDir)\..\Common;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\..\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(ProjectDir)\..\Common;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d11.lib;d3dx11d.lib;D3DCompiler.lib;Effects11d.lib;dxerr.lib;dxgi.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <FxCompile>
+      <EntryPointName>main</EntryPointName>
+      <ShaderModel>5.0</ShaderModel>
+      <DisableOptimizations>true</DisableOptimizations>
+      <EnableDebuggingInformation>true</EnableDebuggingInformation>
+      <ShaderType>Effect</ShaderType>
+    </FxCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>d3d11.lib;d3dx11.lib;D3DCompiler.lib;Effects11.lib;dxerr.lib;dxgi.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

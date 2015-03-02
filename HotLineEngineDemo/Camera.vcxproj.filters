@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="FX">
+      <UniqueIdentifier>{d55fd602-5d6e-4faf-98d9-2d635c753664}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models">
+      <UniqueIdentifier>{04cb809b-7c06-4c5b-b624-f6d971d8aaaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Textures">
+      <UniqueIdentifier>{6c7662c9-da07-4b71-91f4-5ea0f6f57eed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{92323556-ca90-488e-9671-3f307027c3b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GraphicalSubsystem">
+      <UniqueIdentifier>{5f95e080-a559-4eb1-8148-9c61eaecac7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CernelSubsystem">
+      <UniqueIdentifier>{2133d681-b8d5-4d0f-88aa-e8e3dc42ec92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\InputSubsystem">
+      <UniqueIdentifier>{5ca954cd-ed41-4d7c-8d53-e92954babdb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CernelSubsystem\Processes">
+      <UniqueIdentifier>{71c95d0f-88c3-4233-8cef-9562063a717e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CernelSubsystem\States">
+      <UniqueIdentifier>{81975283-028a-479d-9dc1-c5b5ba6dbe9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CernelSubsystem\Model">
+      <UniqueIdentifier>{025ec83d-93ee-48d6-9840-8109985db3bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SoundSubsystem">
+      <UniqueIdentifier>{1c16f800-bc1c-4924-aa70-4518d48cdda6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CernelSubsystem\Animations">
+      <UniqueIdentifier>{6cde91cf-606d-4089-8042-b8d01aba71fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CernelSubsystem\InternalMsg">
+      <UniqueIdentifier>{6942f031-ce52-4e48-a913-a94ad0724871}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Common\GameTimer.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\GeometryGenerator.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\LightHelper.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\MathHelper.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\TextureMgr.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Waves.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\xnacollision.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Camera.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\d3dApp.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\d3dUtil.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="InputLayouts.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files\GraphicalSubsystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Cernel.cpp">
+      <Filter>Source Files\CernelSubsystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Effects.cpp">
+      <Filter>Source Files\GraphicalSubsystem</Filter>
+    </ClCompile>
+    <ClCompile Include="cStateManager.cpp">
+      <Filter>Source Files\CernelSubsystem</Filter>
+    </ClCompile>
+    <ClCompile Include="cProcessManager.cpp">
+      <Filter>Source Files\CernelSubsystem</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawAllProcess.cpp">
+      <Filter>Source Files\CernelSubsystem\Processes</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationManager.cpp">
+      <Filter>Source Files\CernelSubsystem</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureAnimation.cpp">
+      <Filter>Source Files\CernelSubsystem\Animations</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseState.cpp">
+      <Filter>Source Files\CernelSubsystem\States</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteObject.cpp">
+      <Filter>Source Files\CernelSubsystem\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="TestState.cpp">
+      <Filter>Source Files\CernelSubsystem\States</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\CernelSubsystem\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveAnimation.cpp">
+      <Filter>Source Files\CernelSubsystem\Animations</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ground.obj">
+      <Filter>Models</Filter>
+    </Text>
+    <Text Include="ground.mtl">
+      <Filter>Models</Filter>
+    </Text>
+    <Text Include="bottle.obj">
+      <Filter>Models</Filter>
+    </Text>
+    <Text Include="bottle.mtl">
+      <Filter>Models</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="FX\Basic.fx">
+      <Filter>FX</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Logo.jpg">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\..\HotLineProject\d3d11CodeSet1\Chapter 8 Texturing\TexturedHillsAndWaves\Textures\WoodCrate02.dds">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\..\HotLineProject\d3d11CodeSet1\Chapter 8 Texturing\TexturedHillsAndWaves\Textures\grass.dds">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\..\HotLineProject\d3d11CodeSet1\Chapter 8 Texturing\TexturedHillsAndWaves\Textures\water1.dds">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\..\HotLineProject\d3d11CodeSet1\Chapter 8 Texturing\TexturedHillsAndWaves\Textures\water2.dds">
+      <Filter>Textures</Filter>
+    </Image>
+    <Image Include="..\..\..\HotLineProject\d3d11CodeSet1\Chapter 8 Texturing\TexturedHillsAndWaves\Textures\WoodCrate01.dds">
+      <Filter>Textures</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\Common\Effects11d.lib">
+      <Filter>Common</Filter>
+    </Library>
+    <Library Include="..\Common\Effects11.lib">
+      <Filter>Common</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Common\GameTimer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\GeometryGenerator.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\LightHelper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\MathHelper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TextureMgr.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Waves.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\xnacollision.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Camera.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\d3dApp.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\d3dUtil.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\d3dx11effect.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="InputLayouts.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Source Files\GraphicalSubsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Effects.h">
+      <Filter>Source Files\GraphicalSubsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="cStateManager.h">
+      <Filter>Source Files\CernelSubsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="KEYS.h">
+      <Filter>Source Files\InputSubsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawAllProcess.h">
+      <Filter>Source Files\CernelSubsystem\Processes</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationManager.h">
+      <Filter>Source Files\CernelSubsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseAnimation.h">
+      <Filter>Source Files\CernelSubsystem\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureAnimation.h">
+      <Filter>Source Files\CernelSubsystem\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseProcess.h">
+      <Filter>Source Files\CernelSubsystem\Processes</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessManager.h">
+      <Filter>Source Files\CernelSubsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseState.h">
+      <Filter>Source Files\CernelSubsystem\States</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteObject.h">
+      <Filter>Source Files\CernelSubsystem\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseObject.h">
+      <Filter>Source Files\CernelSubsystem\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files\CernelSubsystem\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="TestState.h">
+      <Filter>Source Files\CernelSubsystem\States</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveAnimation.h">
+      <Filter>Source Files\CernelSubsystem\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="TestStateDerrivative.h">
+      <Filter>Source Files\CernelSubsystem\States</Filter>
+    </ClInclude>
+    <ClInclude Include="INTERNAL_MSG.h">
+      <Filter>Source Files\CernelSubsystem\InternalMsg</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\HotLinePrototype5\Chapter 25 Character Animation\SkinnedMesh\SkinnedMesh.vcxproj.filters">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="SkinnedMesh\SkinnedMesh.vcxproj.filters">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Water\TexturedHillsAndWaves.vcxproj.filters">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>
