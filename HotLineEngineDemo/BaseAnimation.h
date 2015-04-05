@@ -9,25 +9,13 @@ namespace HotLine
 	{
 	public:
 		BaseAnimation(std::vector<double> * frameTimes, bool loop, 
-			int StartOfTheLoop = 0) : time(frameTimes), startOfTheLoop(StartOfTheLoop),
-			t2(0), currentFrame(0),
-			isLoop(loop), onStart(true){}
-		~BaseAnimation(){
-			delete(time);
-		}
-
-		virtual bool nextFrame() = 0;
-
-		//this var is true when the animation has not started yet
-		bool onStart;
-
+			int StartOfTheLoop = 0) {}
+		
+		BaseAnimation() {};
+		virtual ~BaseAnimation() {};
+		
+		virtual bool NextFrame(double deltaTime) = 0;
+		virtual bool ReachedEnd() = 0;
 	protected:
-		double t1;
-		double t2;
-		int currentFrame;
-		bool isLoop;
-		int startOfTheLoop;
-
-		std::vector<double> * time;
 	};
 }

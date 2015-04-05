@@ -1,11 +1,15 @@
 #pragma once
 #include "d3dUtil.h"
 #include "xnacollision.h"
+#include <stdio.h>
+#include "OrientationFactories.h"
 
 using namespace XNA;
 
 namespace HotLine
 {
+	static D3D11_VIEWPORT * screen_view_port;
+
 	enum Orientation
 	{
 		top, bottom, front, back, right, left
@@ -27,24 +31,17 @@ namespace HotLine
 		void setTextureCoordinatesAndCreateBuffers(XMFLOAT2 topLeftCoord, XMFLOAT2 bottomRightCoord);
 		XMFLOAT2 getTopLeftTextureCoordinate()const;
 		XMFLOAT2 getBottomRightTextureCoordinate()const;
-
-		//void setTexture(ID3D11ShaderResourceView*);
-		//ID3D11ShaderResourceView* getTexture() const;
 	
 		XMFLOAT3 getWorldPosition()const;
 
 		void setClockWiseRotation(float r);
 		float getClockWiseRotation()const;
 
-		void setScaleRate(float r);
-		float getScaleRate()const;
+		//void setScaleRate(float r);
+		//float getScaleRate()const;
 
+		XMFLOAT2 GetScreenPosition(XMMATRIX & viewProj, D3D11_VIEWPORT screenViewport);
 
-		//************************************************************************************************
-		//***************************SOME HELPING FUNCTIONS OF SCREEN COORDINATES*************************
-		//************************************************************************************************
-		//****************************************DO WE NEED THEM???**************************************
-		//************************************************************************************************
 	private:
 		float sWidth;
 		float sHeight;
@@ -72,12 +69,12 @@ namespace HotLine
 		Orientation orientation;
 		void setWorldMatrix(Orientation O);
 
-
-
 		//some rendering variables
 		ID3D11Buffer* sVB;
 		ID3D11Buffer* sIB;
 		ID3DX11EffectTechnique* sTech;
 		ID3D11Device* sDevice;
+
+		XMVECTOR _vector_up;
 	};
 }

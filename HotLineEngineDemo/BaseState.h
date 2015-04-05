@@ -16,6 +16,8 @@ namespace HotLine
 			boundedStates = new std::vector<BaseState*>();
 			resultingState = NULL;
 			isPaused = false;
+			GUID guid;
+			HRESULT hCreateGuid = CoCreateGuid(&guid);
 		}
 		~BaseState() {};
 
@@ -56,15 +58,20 @@ namespace HotLine
 
 		virtual void resolveKeyDown(WPARAM btnState, int x, int y, XMMATRIX& viewProj) = 0;
 		virtual void resolveKeyUp(WPARAM btnState, int x, int y, XMMATRIX& viewProj) = 0;
-		virtual void resolveMouseMove(WPARAM btnState, int x, int y, XMMATRIX& viewProj) = 0;
-		virtual void resolveLMouseUp(WPARAM btnState, int x, int y, XMMATRIX& viewProj) = 0;
-		virtual void resolveLMouseDown(WPARAM btnState, int x, int y, XMMATRIX& viewProj) = 0;
-		virtual void resolveRMouseUp(WPARAM btnState, int x, int y, XMMATRIX& viewProj) = 0;
-		virtual void resolveRMouseDown(WPARAM btnState, int x, int y, XMMATRIX& viewProj) = 0;
+		virtual void resolveMouseMove(WPARAM btnState, int x, int y, XMMATRIX& viewProj, D3D11_VIEWPORT viewPort) = 0;
+		virtual void resolveLMouseUp(WPARAM btnState, int x, int y, XMMATRIX& viewProj, D3D11_VIEWPORT viewPort) = 0;
+		virtual void resolveLMouseDown(WPARAM btnState, int x, int y, XMMATRIX& viewProj, D3D11_VIEWPORT viewPort) = 0;
+		virtual void resolveRMouseUp(WPARAM btnState, int x, int y, XMMATRIX& viewProj, D3D11_VIEWPORT viewPort) = 0;
+		virtual void resolveRMouseDown(WPARAM btnState, int x, int y, XMMATRIX& viewProj, D3D11_VIEWPORT viewPort) = 0;
 
-		virtual SpriteObject* getPlayer()=0;
+		virtual SpriteObject* getPlayerBodySprite() = 0;
 
 		bool isPaused;
+
+		GUID guid;
+
+		std::vector<BaseProcess*> * processes;
+		std::vector<BaseAnimation*> * animations;
 	protected:
 		ID3D11Device* device;
 
@@ -74,8 +81,7 @@ namespace HotLine
 		//some states which is returned by render() method
 		BaseState* resultingState;
 	private:
-		std::vector<BaseProcess*> * processes;
-		std::vector<BaseAnimation*> * animations;
+
 
 
 	};

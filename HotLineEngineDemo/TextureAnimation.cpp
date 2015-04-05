@@ -1,64 +1,74 @@
 #pragma once
 #include "TextureAnimation.h"
 
+
+
 using namespace HotLine;
-
-
-TextureAnimation::TextureAnimation(std::vector<double> * frameTimes,
-	std::vector<ID3D11ShaderResourceView*> * frameTextures, bool loop, 
-	SpriteObject* object,
-	int StartOfTheLoop)
-	:BaseAnimation(frameTimes, loop, StartOfTheLoop), textures(frameTextures), obj(object)
+//-------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------THE CLASS COMMITS ALL THE TEXTURE CHANGES OF THE SPRITES---------------------
+//-------------------------------------------------------------------------------------------------------------------------
+//TextureAnimation::TextureAnimation(SpriteObject* obj, std::vector<ID3D11ShaderResourceView*> * textures,
+//	int textures_per_second, bool looped) : _obj(obj), _textures(textures), _speed(textures_per_second), 
+//	_looped(looped), _index(0), _time_passed(0) {}
+//-------------------------------------------------------------------------------------------------------------------------
+TextureAnimation::TextureAnimation() : _info() {}
+//-------------------------------------------------------------------------------------------------------------------------
+TextureAnimation::~TextureAnimation() {}
+//-------------------------------------------------------------------------------------------------------------------------
+bool TextureAnimation::NextFrame(double deltaTime)
 {
-	assert(time->size() == textures->size());
-}
+	_info->_time_passed += deltaTime;
 
-TextureAnimation::~TextureAnimation()
-{
-	delete(textures);
-}
-
-bool TextureAnimation::nextFrame()
-{
-	//if animation is not on it`s start
-	if (onStart)
-	{
-		MARKTIME(t1);
-		//the animation started so it is no longer in the state of onStart
-		onStart = false;
+	_info->_index = (int)(_info->_time_passed*_info->_speed);
+	if (_info->_looped)
+		_info->_index = _info->_index % _info->_textures->size();
+	else if (_info->_index>_info->_textures->size() - 1) {
+		__raise OnAnimationFinished();
+		return false;
 	}
-	else
-	{
-		MARKTIME(t2);
-		bool textureChanged = false;
-		//t2 holds how much time has passed since previous screen frame
-		t2 -= t1;
+	_info->_obj->setCurrentTexture(_info->_textures->at(_info->_index));
 
-		//check if enough time has elapsed to go to the next frame of animation
-		while (t2 >= time->at(currentFrame))
-		{
-			t2 -= time->at(currentFrame);
-			currentFrame += 1;
-			if (currentFrame == time->size())
-			{
-				//if we reached the last frame we put the counter to start
-				currentFrame = startOfTheLoop;
-				if (!isLoop){
-					//the animation ended so it is again in the state onStart
-					onStart = true;
-					//false means there is no next frames
-					return false;
-				}
-			}
-			textureChanged = true;
-		}
-		if (textureChanged)
-		{
-			MARKTIME(t1);
-			obj->setCurrentTexture(textures->at(currentFrame));
-		}
+	return true;
+}
+//-------------------------------------------------------------------------------------------------------------------------
+void TextureAnimation::Restart()
+{
+	_info->_time_passed = 0;
+	_info->_index = 0;
+}
+//-------------------------------------------------------------------------------------------------------------------------
+bool TextureAnimation::ReachedEnd()
+{
+	return (_info->_index > _info->_textures->size() - 1);
+}
+//-------------------------------------------------------------------------------------------------------------------------
+bool TextureAnimation::HasSameTexturesWith(TextureAnimation* anim)
+{
+	if (_info->_textures->size() != anim->GetTextures()->size()) return false;
+	for (int i = 0; i < _info->_textures->size(); ++i)
+	{
+		if (_info->_textures->at(i) != anim->GetTextures()->at(i)) return false;
 	}
 	return true;
 }
-
-
+//-------------------------------------------------------------------------------------------------------------------------
+bool TextureAnimation::HasSameTexturesWith(TextureAnimationStateInfo* info)
+{
+	if (_info->_textures->size() != info->_textures->size()) return false;
+	for (int i = 0; i < _info->_textures->size(); ++i)
+	{
+		if (_info->_textures->at(i) != info->_textures->at(i)) return false;
+	}
+	return true;
+}
+//-------------------------------------------------------------------------------------------------------------------------
+void TextureAnimation::JumpToFrame(int i)
+{
+	double frameoffset = _info->_time_passed - _info->_index;
+	_info->_time_passed = (double)i / (double)_info->_speed + frameoffset;
+}
+//-------------------------------------------------------------------------------------------------------------------------
+void TextureAnimation::SetTextureAnimationStateInfo(TextureAnimationStateInfo *info)
+{
+	_info = info;
+}

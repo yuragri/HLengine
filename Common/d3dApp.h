@@ -37,12 +37,14 @@ public:
 	virtual LRESULT MsgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 	// Convenience overrides for handling mouse input.
-	virtual void OnMouseDown(WPARAM btnState, int x, int y){ }
-	virtual void OnMouseUp(WPARAM btnState, int x, int y)  { }
-	virtual void OnMouseMove(WPARAM btnState, int x, int y){ }
+	virtual void OnMouseDown(WPARAM btnState, int x, int y, D3D11_VIEWPORT viewPort){ }
+	virtual void OnMouseUp(WPARAM btnState, int x, int y, D3D11_VIEWPORT viewPort)  { }
+	virtual void OnMouseMove(WPARAM btnState, int x, int y, D3D11_VIEWPORT viewPort){ }
 
 	virtual void OnKeyDown(WPARAM btnState, int x, int y)  { }
 	virtual void OnKeyUp(WPARAM btnState, int x, int y){ }
+
+	D3D11_VIEWPORT GetScreenViewPort() { return mScreenViewport; }
 
 protected:
 	bool InitMainWindow();

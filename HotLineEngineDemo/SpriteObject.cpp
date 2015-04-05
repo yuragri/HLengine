@@ -7,22 +7,35 @@ SpriteObject::SpriteObject(ID3D11Device* device, ID3D11ShaderResourceView* text,
 {
 	sprite = new Sprite(width, height, topLeftCoord, bottomRightCoord, device, orient);
 
-
 	switch (orient)
 	{
 	case HotLine::top:
+	{
 		boundingBox = new AxisAlignedBox();
 		boundingBox->Extents = XMFLOAT3(width / 2, 1, height / 2);
 		break;
+	}
 	case HotLine::bottom:
+	{
+		boundingBox = new AxisAlignedBox();
+		boundingBox->Extents = XMFLOAT3(width / 2, 1, height / 2);
 		break;
+	}
 	case HotLine::front:
+		boundingBox = new AxisAlignedBox();
+		boundingBox->Extents = XMFLOAT3(width / 2, 1, height / 2);
 		break;
 	case HotLine::back:
+		boundingBox = new AxisAlignedBox();
+		boundingBox->Extents = XMFLOAT3(width / 2, 1, height / 2);
 		break;
 	case HotLine::right:
+		boundingBox = new AxisAlignedBox();
+		boundingBox->Extents = XMFLOAT3(width / 2, 1, height / 2);
 		break;
 	case HotLine::left:
+		boundingBox = new AxisAlignedBox();
+		boundingBox->Extents = XMFLOAT3(width / 2, 1, height / 2);
 		break;
 	default:
 		break;

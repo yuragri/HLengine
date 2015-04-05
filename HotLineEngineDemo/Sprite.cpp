@@ -13,6 +13,7 @@ Sprite::Sprite(float width, float height, XMFLOAT2 topLeftCoord, XMFLOAT2 bottom
 	setTextureCoordinatesAndCreateBuffers(topLeftCoord, bottomRightCoord);
 	sTech = Effects::BasicFX->Light0TexAlphaClip;
 	orientation = orient;
+
 	setWorldMatrix(orient);
 }
 
@@ -34,14 +35,8 @@ void Sprite::setWorldMatrix(Orientation O)
 	}
 	case Orientation::right:
 	{
-		XMVECTOR v = { 0, 0, 1 };
-		sWorld *= XMMatrixRotationAxis(v, -MathHelper::Pi / 2);
-		break;
-	}
-	case Orientation::bottom:
-	{
-		XMVECTOR v = { 0, 0, 1 };
-		sWorld *= XMMatrixRotationAxis(v, MathHelper::Pi);
+		XMVECTOR v = { 0, 0, -1 };
+		sWorld *= XMMatrixRotationAxis(v, MathHelper::Pi / 2);
 		break;
 	}
 	}
@@ -111,10 +106,13 @@ void Sprite::Draw(ID3D11DeviceContext* context, ID3D11ShaderResourceView* textur
 	context->IASetVertexBuffers(0, 1, &sVB, &stride, &offset);
 	context->IASetIndexBuffer(sIB, DXGI_FORMAT_R32_UINT, 0);
 
-	XMMATRIX worldInvTranspose = MathHelper::InverseTranspose(sWorld);
-	XMMATRIX worldViewProj = sWorld*viewProj;
+	XMMATRIX wrdl = sWorld * XMMatrixRotationY(sRotationAngle) * XMMatrixTranslation(sPosition.x, sPosition.y, sPosition.z);
+	//sWorld = XMMatrixRotationY(sRotationAngle) * XMMatrixTranslation(sPosition.x, sPosition.y, sPosition.z);
 
-	Effects::BasicFX->SetWorld(sWorld);
+	XMMATRIX worldInvTranspose = MathHelper::InverseTranspose(wrdl);
+	XMMATRIX worldViewProj = wrdl*viewProj;
+
+	Effects::BasicFX->SetWorld(wrdl);
 	Effects::BasicFX->SetWorldInvTranspose(worldInvTranspose);
 	Effects::BasicFX->SetWorldViewProj(worldViewProj);
 	Effects::BasicFX->SetTexTransform(XMMatrixIdentity());
@@ -137,7 +135,6 @@ void Sprite::setWorldPosition(XMFLOAT3 pos)
 {
 	sPosition = pos;
 	setWorldMatrix(orientation);
-	sWorld *= XMMatrixTranslation(pos.x, pos.y, pos.z);
 }
 
 XMFLOAT3 Sprite::getWorldPosition()const
@@ -149,7 +146,6 @@ void Sprite::setClockWiseRotation(float r)
 {
 	sRotationAngle = r;
 	XMVECTOR v = { 0, 1, 0 };
-	sWorld *= XMMatrixRotationAxis(v, r);
 }
 
 float Sprite::getClockWiseRotation() const 
@@ -157,14 +153,27 @@ float Sprite::getClockWiseRotation() const
 	return sRotationAngle;
 }
 
-//TODO: add orientations
-void Sprite::setScaleRate(float r)
-{
-	sScaleRate = r;
-	sWorld *= XMMatrixScaling(r, 1, r);
-}
+////TODO: add orientations
+//void Sprite::setScaleRate(float r)
+//{
+//	sScaleRate = r;
+//	sWorld *= XMMatrixScaling(r, 1, r);
+//}
+//
+//float Sprite::getScaleRate()const
+//{
+//	return sScaleRate;
+//}
 
-float Sprite::getScaleRate()const
+XMFLOAT2 Sprite::GetScreenPosition(XMMATRIX & viewProj, D3D11_VIEWPORT screenViewport)
 {
-	return sScaleRate;
+	XMVECTOR local = XMVectorSet(sPosition.x, sPosition.y, sPosition.z, 1.0f);
+	XMMATRIX tmpMtx = XMMatrixTranslation(sPosition.x, sPosition.y, sPosition.z);
+
+	XMMATRIX wvp = MathHelper::InverseTranspose(tmpMtx) * viewProj;
+	XMVECTOR screenView = XMVector3Transform(local, wvp);
+	XMFLOAT2 pixelPosition;
+	pixelPosition.x = ((screenView.m128_f32[0] + 1) * screenViewport.Width) / 2;
+	pixelPosition.y = ((-screenView.m128_f32[1] + 1) * screenViewport.Height) / 2;
+	return pixelPosition;
 }

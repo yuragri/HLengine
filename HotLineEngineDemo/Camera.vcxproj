@@ -25,9 +25,10 @@
     <ClCompile Include="BaseState.cpp" />
     <ClCompile Include="Cernel.cpp" />
     <ClCompile Include="cProcessManager.cpp" />
-    <ClCompile Include="cStateManager.cpp" />
+    <ClCompile Include="RotateAnimation.cpp" />
+    <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="MoveAnimation.cpp" />
-    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="AnimatedHuman.cpp" />
     <ClCompile Include="TestState.cpp" />
     <ClCompile Include="DrawAllProcess.cpp" />
     <ClCompile Include="Effects.cpp" />
@@ -36,6 +37,7 @@
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteObject.cpp" />
     <ClCompile Include="TextureAnimation.cpp" />
+    <ClCompile Include="TextureAnimationStateInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="bottle.obj" />
@@ -79,19 +81,21 @@
     <ClInclude Include="BaseState.h" />
     <ClInclude Include="INTERNAL_MSG.h" />
     <ClInclude Include="MoveAnimation.h" />
-    <ClInclude Include="Player.h" />
+    <ClInclude Include="AnimatedHuman.h" />
+    <ClInclude Include="OrientationFactories.h" />
     <ClInclude Include="ProcessManager.h" />
     <ClInclude Include="DrawAllProcess.h" />
     <ClInclude Include="Effects.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="InputLayouts.h" />
     <ClInclude Include="KEYS.h" />
+    <ClInclude Include="RotateAnimation.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="cStateManager.h" />
+    <ClInclude Include="StateManager.h" />
     <ClInclude Include="SpriteObject.h" />
     <ClInclude Include="TestState.h" />
-    <ClInclude Include="TestStateDerrivative.h" />
     <ClInclude Include="TextureAnimation.h" />
+    <ClInclude Include="TextureAnimationStateInfo.h" />
     <ClInclude Include="Time.h" />
   </ItemGroup>
   <ItemGroup>
@@ -149,7 +153,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3d11.lib;d3dx11d.lib;D3DCompiler.lib;Effects11d.lib;dxerr.lib;dxgi.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;d3dx11d.lib;D3DCompiler.lib;Effects11d.lib;Effects11.lib;dxerr.lib;dxgi.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <FxCompile>
       <EntryPointName>main</EntryPointName>

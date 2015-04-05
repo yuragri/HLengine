@@ -5,22 +5,33 @@
 
 namespace HotLine
 {
+	//-------------------------------------------------------------------------------------------------------------------------
+	//--------------------------------------------THE CLASS COMMITS ALL THE MOVINGS OF THE SPRITES-----------------------------
+	//-------------------------------------------------------------------------------------------------------------------------
 	class MoveAnimation : public BaseAnimation
 	{
 	public:
-		MoveAnimation(std::vector<double> * frameTimes,
-			std::vector<XMFLOAT3> * frameTextures, bool loop,
-			SpriteObject* obj,
-			int StartOfTheLoop = 0);
+		MoveAnimation(SpriteObject* obj, XMFLOAT3 step, float speed, float target_distance = -1);
+
 		~MoveAnimation();
 
+		virtual bool NextFrame(double deltaTime);
 
-		bool nextFrame();
+		virtual bool ReachedEnd();
+		void Restart();
 
-		static void setCollidedObjects(std::vector<SpriteObject*> * collObjs);
-		static std::vector<SpriteObject*> * collObjects;
+		static void setCollidableObjects(std::vector<SpriteObject*> * collObjs);
 	protected:
-		std::vector<XMFLOAT3> * moves;
-		SpriteObject * obj;
+		XMFLOAT3 MakeMove(double deltaTime, XMFLOAT3 oldposition);
+		bool CollisionCheck(XMFLOAT3 newposition);
+		float CountIntendedMoveDistance(double deltaTime);
+
+		static std::vector<SpriteObject*> * collObjects;
+
+		SpriteObject * _obj;
+		XMFLOAT3 _step;
+		float _speed;
+		float _target_distance;
+		float _reached_distance;
 	};
 }

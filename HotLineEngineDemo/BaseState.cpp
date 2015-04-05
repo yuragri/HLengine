@@ -21,7 +21,6 @@ void BaseState::addAnimation(HotLine::BaseAnimation* anim)
 	}	
 	if (!contains) animations->push_back(anim);
 	//TRACE(L"SIZE:%i\n", animations->size());
-
 }
 
 void BaseState::removeProcess(BaseProcess* proc)
@@ -34,9 +33,6 @@ void BaseState::removeAnimation(BaseAnimation* anim)
 	{
 		if (animations->at(i) == anim)
 		{
-			//manualy putting the animation in onStart state (pausing the animation)
-			animations->at(i)->onStart = true;
-			//erase the animation to not to play it again
 			animations->erase(animations->begin() + i);
 			i--;
 		}
@@ -61,20 +57,35 @@ void BaseState::removeBoundedState(BaseState* ba)
 
 BaseState* BaseState::render(ID3D11DeviceContext* context, XMMATRIX& viewProj)
 {
-	for (int i = 0; i < animations->size(); ++i)
-	{
-		bool hasNextFrame = animations->at(i)->nextFrame();
-		if (!hasNextFrame)
-		{
-			animations->erase(animations->begin() + i);
-			i--;
-		}
-	}
+	//resolve animations
+
+	//camera and effects
+
+	//draw all objects
+
+
+	//for (int i = 0; i < animations->size(); ++i)
+	//{
+	//	bool hasNextFrame = animations->at(i)->nextFrame();
+	//	if (!hasNextFrame)
+	//	{
+	//		animations->erase(animations->begin() + i);
+	//		i--;
+	//	}
+	//}
 
 	for (int i = 0; i < processes->size(); ++i)
 	{
 		processes->at(i)->process(context, viewProj);
 	}
+
+	//for (int i = 0; i < objects->size(); ++i)
+	//{
+	//	if (objects->at(i)->visible)
+	//	{
+	//		objects->at(i)->Draw(context, viewProj);
+	//	}
+	//}
 
 	BaseState* res = resultingState;
 	resultingState = NULL;

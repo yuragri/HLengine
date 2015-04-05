@@ -99,9 +99,6 @@
     <ClCompile Include="Effects.cpp">
       <Filter>Source Files\GraphicalSubsystem</Filter>
     </ClCompile>
-    <ClCompile Include="cStateManager.cpp">
-      <Filter>Source Files\CernelSubsystem</Filter>
-    </ClCompile>
     <ClCompile Include="cProcessManager.cpp">
       <Filter>Source Files\CernelSubsystem</Filter>
     </ClCompile>
@@ -123,10 +120,19 @@
     <ClCompile Include="TestState.cpp">
       <Filter>Source Files\CernelSubsystem\States</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="MoveAnimation.cpp">
+      <Filter>Source Files\CernelSubsystem\Animations</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManager.cpp">
+      <Filter>Source Files\CernelSubsystem</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatedHuman.cpp">
       <Filter>Source Files\CernelSubsystem\Model</Filter>
     </ClCompile>
-    <ClCompile Include="MoveAnimation.cpp">
+    <ClCompile Include="TextureAnimationStateInfo.cpp">
+      <Filter>Source Files\CernelSubsystem\Animations</Filter>
+    </ClCompile>
+    <ClCompile Include="RotateAnimation.cpp">
       <Filter>Source Files\CernelSubsystem\Animations</Filter>
     </ClCompile>
   </ItemGroup>
@@ -223,9 +229,6 @@
     <ClInclude Include="Effects.h">
       <Filter>Source Files\GraphicalSubsystem</Filter>
     </ClInclude>
-    <ClInclude Include="cStateManager.h">
-      <Filter>Source Files\CernelSubsystem</Filter>
-    </ClInclude>
     <ClInclude Include="KEYS.h">
       <Filter>Source Files\InputSubsystem</Filter>
     </ClInclude>
@@ -259,20 +262,29 @@
     <ClInclude Include="BaseObject.h">
       <Filter>Source Files\CernelSubsystem\Model</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Source Files\CernelSubsystem\Model</Filter>
-    </ClInclude>
     <ClInclude Include="TestState.h">
       <Filter>Source Files\CernelSubsystem\States</Filter>
     </ClInclude>
     <ClInclude Include="MoveAnimation.h">
       <Filter>Source Files\CernelSubsystem\Animations</Filter>
     </ClInclude>
-    <ClInclude Include="TestStateDerrivative.h">
-      <Filter>Source Files\CernelSubsystem\States</Filter>
-    </ClInclude>
     <ClInclude Include="INTERNAL_MSG.h">
       <Filter>Source Files\CernelSubsystem\InternalMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
+      <Filter>Source Files\CernelSubsystem</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedHuman.h">
+      <Filter>Source Files\CernelSubsystem\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureAnimationStateInfo.h">
+      <Filter>Source Files\CernelSubsystem\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="RotateAnimation.h">
+      <Filter>Source Files\CernelSubsystem\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="OrientationFactories.h">
+      <Filter>Source Files\GraphicalSubsystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

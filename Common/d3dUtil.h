@@ -23,6 +23,7 @@
 #include <vector>
 #include "MathHelper.h"
 #include "LightHelper.h"
+#include <stdio.h>
 
 //---------------------------------------------------------------------------------------
 // Simple d3d error checker for book demos.

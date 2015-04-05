@@ -19,9 +19,12 @@ namespace HotLine
 		AxisAlignedBox * getBoundingBox() const { return boundingBox; }
 
 		XMFLOAT3 getWorldPosition() const { return sprite->getWorldPosition(); }
-		void setWorldPosition(XMFLOAT3 pos) const { if (boundingBox!=NULL) boundingBox->Center = pos; sprite->setWorldPosition(pos); }
+		void setWorldPosition(XMFLOAT3 pos) { if (boundingBox!=NULL) boundingBox->Center = pos; sprite->setWorldPosition(pos); }
 
-		
+		void SetRotation(float angle) { sprite->setClockWiseRotation(angle); }
+		float GetRotation() { return sprite->getClockWiseRotation(); }
+
+		XMFLOAT2 GetScreenPosition(XMMATRIX& viewProj, D3D11_VIEWPORT screenViewport) { return sprite->GetScreenPosition(viewProj, screenViewport); }
 	protected:
 		AxisAlignedBox * boundingBox;
 		ID3D11ShaderResourceView* currentTexture;
